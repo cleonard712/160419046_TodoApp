@@ -44,4 +44,11 @@ class TodoListViewModel(application:Application):AndroidViewModel(application),C
             todoLD.value = db.todoDao().selectAllTodo()
         }
     }
+    fun update(id:Int){
+        launch {
+            val db = buildDb(getApplication())
+            db.todoDao().update(id)
+            todoLD.value = db.todoDao().selectAllTodo()
+        }
+    }
 }
