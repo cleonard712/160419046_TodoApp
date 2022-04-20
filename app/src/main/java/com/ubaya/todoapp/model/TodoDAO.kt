@@ -17,7 +17,7 @@ interface TodoDAO {
     suspend fun update(id:Int,title:String,notes:String,priority:Int)
 
     @Query("update todo set is_done = 1 where uuid = :id")
-    suspend fun update(id:Int)
+    suspend fun update(id:Int)  // menggunakan int karena jika menggunakan bollean nanti berubah jadi tinyint
     @Delete
     suspend fun deleteTodo(todo:Todo)
 }
